@@ -9,5 +9,16 @@ module.exports = {
     output:{
         path: path.join(__dirname, 'dist'),
         filename: '[name].js',
-    }
+    },
+    module: {
+        rules: [
+            // {
+            //     test: '文件，指定匹配规则',
+            //     use: 'xxx-loader',
+            // }
+        ]
+    },
+    plugins:[
+        // 
+    ]
 };

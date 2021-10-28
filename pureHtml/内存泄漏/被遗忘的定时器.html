@@ -1,0 +1,15 @@
+<button>开启定时器</button>
+<script>
+
+    function fn1() {
+        let largeObj = new Array(100000)
+
+        setInterval(() => {
+            let myObj = largeObj
+        }, 1000)
+    }
+
+    document.querySelector('button').addEventListener('click', function() {
+        fn1()
+    })
+</script>

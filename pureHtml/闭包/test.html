@@ -1,0 +1,25 @@
+<html >
+
+<body >
+    <button onclick="clickMe()">clickMe</button>
+    <script >
+        var c = '';
+        function closureFn() {
+            var a = + new Date();
+            c = a;
+            console.log('c:',c);
+            setTimeout(function() {
+                
+                console.log(a);
+            }, 1000);
+        }
+
+        let outRes = [];
+
+        function clickMe(){
+            closureFn();
+        }
+    </script>
+</body>
+
+</html>

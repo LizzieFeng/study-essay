@@ -1,0 +1,15 @@
+<div id="root">
+    <div class="child">我是子元素</div>
+    <button>移除</button>
+</div>
+<script>
+
+    let btn = document.querySelector('button')
+    
+    btn.addEventListener('click', function() {
+        let child = document.querySelector('.child')
+        let root = document.querySelector('#root')
+        root.removeChild(child)
+    })
+
+</script>

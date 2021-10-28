@@ -1,0 +1,29 @@
+<html >
+
+<body >
+    <!-- disabled="true" -->
+    <button id="button" disabled="true"   onclick="handleClick()">测试： button disabled时 通过脚本能否触发点击</button>
+    <div onclick="handleDivClick()">触发button的点击</div>
+    <script >
+
+        function simulateAjax() {
+            setTimeout(function() {
+
+            });
+        }
+
+        function handleClick() {
+            console.log('我是button，呀呀呀，我被点击了。');
+            this.simulateAjax();
+        }
+
+        function handleDivClick() {
+            console.log('div点击了');
+            var dom = document.getElementById('button');
+            dom.click();
+        }
+
+    </script>
+</body>
+
+</html>

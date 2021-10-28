@@ -1,0 +1,28 @@
+<html >
+
+<body >
+    <button onclick="clickMe()">clickMe</button>
+    <script >
+        waitfunc = async function() {
+            return  6;
+        }
+        const promise1 = async function() {
+            const a = await waitfunc();
+            return a;
+        };
+        const promise2 = 42;
+        const promise3 =  new Promise((resolve, reject) => {
+            setTimeout(resolve, 5000, 'foo');
+        });
+
+
+        function clickMe(){
+            const b = Promise.all([promise1, promise2, promise3]).then((values) => {
+                console.log(values);
+                });
+            console.log(b,'b');
+        }
+    </script>
+</body>
+
+</html>

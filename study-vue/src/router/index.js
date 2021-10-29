@@ -14,6 +14,7 @@ import TransitionStudy from '@/views/transitionStudy/TransitionStudy.vue'
 import IfFor from '@/views/ifFor/IfFor.vue'
 import Closure from '@/views/closure/Closure.vue'
 import AtrrsAndListeners from '@/views/attrsAndListeners/AtrrsAndListeners.vue'
+import FilePreview from '@/views/filePreview/FilePreview.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -87,6 +88,11 @@ export default new Router({
       path: '/attrs',
       name: 'AtrrsAndListeners',
       component: AtrrsAndListeners
+    },
+    {
+      path: '/file',
+      name: 'FilePreview',
+      component: FilePreview
     }
   ]
 })

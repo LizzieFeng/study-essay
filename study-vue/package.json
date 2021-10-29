@@ -10,7 +10,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "docx-preview": "^0.1.4",
     "element-ui": "^2.15.1",
+    "gxd-file-preview": "^1.1.14",
     "mixin": "^0.2.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

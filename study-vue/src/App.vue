@@ -99,6 +99,11 @@ export default {
           id: 13,
           title: 'attrs、listeners',
           routeName: 'AtrrsAndListeners'
+        },
+        {
+          id: 14,
+          title: '富文本文件预览',
+          routeName: 'FilePreview'
         }
       ],
     }

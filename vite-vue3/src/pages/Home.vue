@@ -19,6 +19,8 @@ import UseFavicon from '../components/feature/useFavicon/UseFavicon.vue';
 import ToggleFullScreen from '../components/feature/toggleFullScreen/ToggleFullScreen.vue';
 import MouseMove from '../components/feature/mouseMove/MouseMove.vue';
 import RateExample from '../components/feature/starRate/Example.vue';
+import AnimationExample from '../components//feature/animation/Example.vue';
+import AnimationExample2 from '../components//feature/animation/Example2.vue';
 const nav = [
   {
     label: 'TodoList',
@@ -39,6 +41,14 @@ const nav = [
   {
     label: 'RateExample',
     cname: RateExample,
+  },
+  {
+    label: '动画css',
+    cname: AnimationExample,
+  },
+  {
+    label: '动画vue',
+    cname: AnimationExample2,
   }
 ]
 let activeNav = ref({});

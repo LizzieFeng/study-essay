@@ -15,18 +15,11 @@
       <span> {{ active }} / {{ all }} </span>
     </div>
   </div>
-  <div>
-    mouseX: {{x}}
-    mouseY: {{y}}
-  </div>
 </template>
 
 
 <script setup>
-import useTodos from '../components/todolist/useTodos';
-import {useMouse} from '../utils/mouse'
+import useTodos from './core/useTodos';
 
 let { title, todos, addTodo, clear, active, all, allDone } = useTodos();
-
-let {x,y} = useMouse()
 </script>

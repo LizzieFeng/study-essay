@@ -1,10 +1,30 @@
 <template>
-  <div>
-    <router-link to="/">首页</router-link> | 
-    <router-link to="/about">关于</router-link>
+  <div class="container">
+    <div class="nav-container">
+      <router-link v-for=" (nav) of navArr"
+        :to="nav.path"
+        :key="nav.label">
+        {{nav.label}}
+      </router-link>
+    </div>
+    <div >
+      <router-view></router-view>
+    </div>
   </div>
-  <router-view></router-view>
 </template>
+<script setup>
+
+const navArr = [
+  {
+    label: '首页',
+    path: '/'
+  },
+  {
+    label: '关于',
+    path: '/about'
+  }
+];
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -14,4 +34,18 @@
   color: #2c3e50;
   margin-top: 60px;
 }
+</style>
+
+<style scoped>
+  .container{
+    display: flex;
+  }
+
+  .nav-container{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+
 </style>

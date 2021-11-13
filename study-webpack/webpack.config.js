@@ -69,7 +69,7 @@ module.exports = {
     // },
     devServer: {
         // webpack-dev-server服务的基础的目录
-        // contentBase: './dist',
+        contentBase: './dist',
         // 热更新
         hot: true
     }

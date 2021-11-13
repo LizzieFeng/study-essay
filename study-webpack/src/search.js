@@ -9,7 +9,7 @@ import icon from './img/icon.jpeg';
 class Search extends React.Component {
     render() {
         return <div className="search-text search-border">
-            Search  Text --watch <img src={icon}></img>
+            Search  Text --watch -- <img src={icon}></img>
         </div>;
     }
 }

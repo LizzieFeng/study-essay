@@ -11,7 +11,6 @@ function useTodos() {
     //   title.value = "";
     // }
     function addTodo() {
-      debugger
       if(!title.value){
         showModal.value = true
         setTimeout(()=>{

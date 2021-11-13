@@ -21,6 +21,7 @@ import MouseMove from '../components/feature/mouseMove/MouseMove.vue';
 import RateExample from '../components/feature/starRate/Example.vue';
 import AnimationExample from '../components//feature/animation/Example.vue';
 import AnimationExample2 from '../components//feature/animation/Example2.vue';
+import Count from '../components/feature/count/Count.vue';
 const nav = [
   {
     label: 'TodoList',
@@ -49,11 +50,14 @@ const nav = [
   {
     label: '动画vue',
     cname: AnimationExample2,
+  },
+  {
+    label: 'Count',
+    cname: Count,
   }
 ]
 let activeNav = ref({});
 function changeNav(n) {
-  debugger
   activeNav.value = n;
 }
 </script>

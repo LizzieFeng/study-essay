@@ -4,7 +4,6 @@
 import {ref, onMounted,onUnmounted} from 'vue'
 
 export function useMouse(){
-    debugger
     const x = ref(0)
     const y = ref(0)
     function update(e) {

@@ -9,7 +9,8 @@
       </div>
     </div>
     <div>
-      <component :is='activeNav.cname'></component>
+      <component :is='activeNav.cname' level>
+      </component>
     </div>
 </template>
 <script setup> 
@@ -22,10 +23,15 @@ import RateExample from '../components/feature/starRate/Example.vue';
 import AnimationExample from '../components//feature/animation/Example.vue';
 import AnimationExample2 from '../components//feature/animation/Example2.vue';
 import Count from '../components/feature/count/Count.vue';
+import TodoJsx from '../components/feature/todolist/TodoJsx.jsx';
 const nav = [
   {
     label: 'TodoList',
     cname: TodoList,
+  },
+  {
+    label: 'TodoJsx',
+    cname: TodoJsx,
   },
   {
     label: 'UseFavicon',
@@ -64,6 +70,7 @@ function changeNav(n) {
 <style scoped>
 .nav-container{
   display: flex;
+  flex-wrap: wrap;
 }
 
 .nav-item{

@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin  = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
     mode: 'production',
     entry: {
@@ -68,19 +69,34 @@ module.exports = {
                 cssProcessor: require('cssnano'),
             }
         ),
-        // new HtmlWebpackPlugin({
-        //     template: path.join(__dirname, 'src/Search.html'),
-        //     filename: 'search.html',
-        //     chunks: ['search'],
-        //     inject: true,
-        //     minify: {
-        //         html5: true,
-        //         collapseWhitespace: true,
-        //         preserveLineBreaks: false,
-        //         minifyCss: true,
-        //         minifyJs: true,
-        //         removeComments: false,
-        //     }
-        // }),
+        // 通常而言，一个页面需要对应一个htmlwebpackplugin
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/search.html'), // htmlwebpackplugin的html模板的所在位置 模板里面可以使用js的语法
+            filename: 'search.html', // 指定打包出来的html的文件名。
+            chunks: ['search'], // 指定生成的html要使用哪些chunk， 和entry中的search
+            inject: true, // 打包出来的chunk会自动的注入到这个html中。
+            minify: {
+                html5: true,
+                collapseWhitespace: true,
+                preserveLineBreaks: false,
+                minifyCss: true,
+                minifyJs: true,
+                removeComments: false,
+            }
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src/index.html'), // htmlwebpackplugin的html模板的所在位置 模板里面可以使用js的语法
+            filename: 'index.html', // 指定打包出来的html的文件名。
+            chunks: ['index'], // 指定生成的html要使用哪些chunk， 和entry中的search
+            inject: true, // 打包出来的chunk会自动的注入到这个html中。
+            minify: {
+                html5: true,
+                collapseWhitespace: true,
+                preserveLineBreaks: false,
+                minifyCss: true,
+                minifyJs: true,
+                removeComments: false,
+            }
+        }),
     ],
 };

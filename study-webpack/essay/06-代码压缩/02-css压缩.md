@@ -1,18 +1,25 @@
-{
-  "name": "helloword",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.prod.js",
-    "watch": "webpack --watch",
-    "dev": "webpack-dev-server --config webpack.dev.js --open"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
+css压缩 （以下使用版本"webpack": "^4.31.0"）
+    使用optimize-css-assets-webpack-plugin
+
+    同时使用 cssnano
+
+
+    ````javascript
+     plugins: [
+        new  OptimizeCssAssetsPlugin(
+            {
+                assetNameRegExp:/\.css$/g,
+                cssProcessor: require('cssnano'),
+            }
+        ),
+    ],
+
+    ````
+
+
+    ````json
+
+ "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
@@ -36,4 +43,4 @@
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.3.1"
   }
-}
+    ````

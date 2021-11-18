@@ -1,4 +1,4 @@
-css压缩 （以下使用版本"webpack": "^4.31.0"）
+css压缩 
     使用optimize-css-assets-webpack-plugin
 
     同时使用 cssnano
@@ -9,7 +9,7 @@ css压缩 （以下使用版本"webpack": "^4.31.0"）
         new  OptimizeCssAssetsPlugin(
             {
                 assetNameRegExp:/\.css$/g,
-                cssProcessor: require('cssnano'),
+                // cssProcessor: require('cssnano'), // （使用版本"webpack": "^4.31.0"）,如果是5的话就不用了。使用会报错
             }
         ),
     ],

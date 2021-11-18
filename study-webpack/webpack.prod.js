@@ -66,7 +66,7 @@ module.exports = {
         new  OptimizeCssAssetsPlugin(
             {
                 assetNameRegExp:/\.css$/g,
-                cssProcessor: require('cssnano'),
+                // cssProcessor: require('cssnano'),
             }
         ),
         // 通常而言，一个页面需要对应一个htmlwebpackplugin

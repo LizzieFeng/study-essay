@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin  = require('optimize-css-assets-webpack-plugin');
 module.exports = {
     mode: 'production',
     entry: {
@@ -61,5 +62,25 @@ module.exports = {
                 filename: `[name][contenthash:8].css`,
             }
         ),
+        new  OptimizeCssAssetsPlugin(
+            {
+                assetNameRegExp:/\.css$/g,
+                cssProcessor: require('cssnano'),
+            }
+        ),
+        // new HtmlWebpackPlugin({
+        //     template: path.join(__dirname, 'src/Search.html'),
+        //     filename: 'search.html',
+        //     chunks: ['search'],
+        //     inject: true,
+        //     minify: {
+        //         html5: true,
+        //         collapseWhitespace: true,
+        //         preserveLineBreaks: false,
+        //         minifyCss: true,
+        //         minifyJs: true,
+        //         removeComments: false,
+        //     }
+        // }),
     ],
 };

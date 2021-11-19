@@ -1,0 +1,1 @@
+对于这种情况，一种比较好的解决方案是，在执行 git commit 命令的时候，同时执行 ESLint。我们使用 husky 管理 git 的钩子函数，在每次代码提交至 git 之前去执行 ESLint，只有 ESLint 的校验通过，commit 才能执行成功。

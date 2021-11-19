@@ -1,7 +1,7 @@
-import { ref,computed } from "vue";
+import { ref,computed } from "vue"
 function useTodos() {
-    let title = ref("");
-    let todos = ref([{ title: "学习Vue", done: false }]);
+    let title = ref("")
+    let todos = ref([{ title: "学习Vue", done: false }])
     let showModal = ref(false)
     // function addTodo() {
     //   todos.value.push({
@@ -21,27 +21,27 @@ function useTodos() {
       todos.value.push({
         title: title.value,
         done: false,
-      });
-      title.value = "";
+      })
+      title.value = ""
     }
     function clear() {
-      todos.value = todos.value.filter((v) => !v.done);
+      todos.value = todos.value.filter((v) => !v.done)
     }
     let active = computed(() => {
-      return todos.value.filter((v) => !v.done).length;
-    });
-    let all = computed(() => todos.value.length);
+      return todos.value.filter((v) => !v.done).length
+    })
+    let all = computed(() => todos.value.length)
     let allDone = computed({
       get: function () {
-        return active.value === 0;
+        return active.value === 0
       },
       set: function (value) {
         todos.value.forEach((todo) => {
-          todo.done = value;
-        });
+          todo.done = value
+        })
       },
-    });
-    return { title, todos, addTodo, clear, active, all, allDone ,showModal};
+    })
+    return { title, todos, addTodo, clear, active, all, allDone ,showModal}
   }
 
-export default useTodos;
+export default useTodos

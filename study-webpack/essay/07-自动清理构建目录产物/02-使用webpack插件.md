@@ -5,7 +5,10 @@
 默认会删除output指定的输出目录
 
 ````javascript
+
+const {CleanWebpackPlugin} = require('clean-webpack-plugin'); // webpack 5.61
+// const CleanWebpackPlugin = require('clean-webpack-plugin'); // webpack 4
 plugins: [
-        new CleanWebpackPlugin(), // 为了成功降了版本，webpack4
+        new CleanWebpackPlugin(),
     ],
 ````

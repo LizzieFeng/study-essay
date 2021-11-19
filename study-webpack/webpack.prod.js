@@ -2,8 +2,8 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin  = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin'); // webpack 5.61
-// const CleanWebpackPlugin = require('clean-webpack-plugin'); // webpack 4
+// const {CleanWebpackPlugin} = require('clean-webpack-plugin'); // webpack 5.61
+const CleanWebpackPlugin = require('clean-webpack-plugin'); // webpack 4
 module.exports = {
     mode: 'production',
     entry: {
@@ -35,7 +35,19 @@ module.exports = {
                     // 'style-loader',
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'less-loader'
+                    'less-loader',
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: () => [
+                                require('autoprefixer')({
+                                    // 可以指定autoprefixer兼容的浏览器版本
+                                    // 最近的两个版本，浏览器版本使用的人数所占的比例，兼容ios 7以上的。
+                                    browsers: ['last 2 version', '>1%', 'iOS 7']
+                                })
+                            ]
+                        }
+                    }
                 ]
             },
             {

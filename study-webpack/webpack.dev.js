@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
     // mode: 'production',
     mode: 'development', // 使用热更新
@@ -64,6 +64,7 @@ module.exports = {
         //         filename: '[name][contenthash:8].css',
         //     }
         // ),
+        new CleanWebpackPlugin(), // 为了成功降了版本，webpack4
     ],
     // watch: true,
     // watchOptions: {
@@ -76,8 +77,8 @@ module.exports = {
     // },
     devServer: {
         // webpack-dev-server服务的基础的目录
-        // contentBase: './dist', // webpack 4的属性 这个属性在webpack 5中不可以使用， static是webpack 5的
-        static: './dist',
+        contentBase: './dist', // webpack 4的属性 这个属性在webpack 5中不可以使用， static是webpack 5的
+        // static: './dist', // webpack 5.61
         // 热更新
         hot: true
     }

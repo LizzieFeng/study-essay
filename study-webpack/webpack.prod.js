@@ -3,9 +3,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin  = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); // webpack 5.61
-// const CleanWebpackPlugin = require('clean-webpack-plugin'); // webpack 4
 const glob = require('glob');
-
+const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const setMPA = () => {
     const entry = {};
     const htmlWebpackPlugins = [];
@@ -46,6 +45,29 @@ module.exports = {
         path: path.join(__dirname, 'dist'),
         filename: '[name]_[chunkhash:8].js', // 指纹
     },
+    // optimization: {
+    //     splitChunks: {
+    //         chunks: 'async',
+    //         minSize: 30000, // 抽离的公共包的最小的大小 ，单位是字节
+    //         maxSize: 0, // 抽离的公共包最大的大小 单位是字节
+    //         minChunks: 1, // 使用的次数，大于1就会提取成公共的文件，设置某一个方法的最小的使用次数。比如说一段代码，写了一个方法，在多个页面都使用到，如果a页面和b页面都使用到，那么当前chunks就是2
+    //         maxAsyncRequests: 5, // 浏览器同时请求的异步资源的次数，，比如说异步的js，通过这个插件，如果你分离出了3个或者是4个资源出来，同时请求的数量。
+    //         maxInitialRequests: 3,
+    //         name: true,
+    //         cacheGroups: {
+    //           defaultVendors: {
+    //             test: /[\\/]node_modules[\\/]/,
+    //             priority: -10,
+    //             reuseExistingChunk: true,
+    //           },
+    //           default: {
+    //             minChunks: 2,
+    //             priority: -20,
+    //             reuseExistingChunk: true,
+    //           },
+    //         },
+    //     }
+    // },
     module: {
         rules: [
             {
@@ -135,6 +157,20 @@ module.exports = {
             }
         ),
         new CleanWebpackPlugin(),
+        new HtmlWebpackExternalsPlugin({
+            externals: [
+                {
+                    module: 'react',
+                    entry: 'https://unpkg.com/react@16/umd/react.development.js',
+                    global: 'React'
+                },
+                {
+                    module: 'react-dom',
+                    entry: 'https://unpkg.com/react-dom@16/umd/react-dom.development.js',
+                    global: 'ReactDOM'
+                }
+            ]
+        }),
     ].concat(htmlWebpackPlugins),
     devtool: 'inline-source-map'
 };

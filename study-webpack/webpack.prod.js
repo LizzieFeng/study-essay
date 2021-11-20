@@ -7,8 +7,8 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin'); // webpack 5.61
 module.exports = {
     mode: 'production',
     entry: {
-        index: './src/index.js',
-        search: './src/search.js'
+        index: './src/index/index.js',
+        search: './src/search/index.js'
     },
     output:{
         path: path.join(__dirname, 'dist'),
@@ -73,6 +73,21 @@ module.exports = {
                 use: [
                     'file-loader'
                 ]
+            },
+            {
+                test: /\.scss$/,
+                use: [
+
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            insertAt: 'top', // 样式插入到<head></head>
+                            singleton: true, // 将所有的style标签合并成一个
+                        }
+                    },
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
         ]
     },
@@ -90,7 +105,7 @@ module.exports = {
         ),
         // 通常而言，一个页面需要对应一个htmlwebpackplugin
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src/search.html'), // htmlwebpackplugin的html模板的所在位置 模板里面可以使用js的语法
+            template: path.join(__dirname, 'src/search/index.html'), // htmlwebpackplugin的html模板的所在位置 模板里面可以使用js的语法
             filename: 'search.html', // 指定打包出来的html的文件名。
             chunks: ['search'], // 指定生成的html要使用哪些chunk， 和entry中的search
             inject: true, // 打包出来的chunk会自动的注入到这个html中。
@@ -104,7 +119,7 @@ module.exports = {
             }
         }),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src/index.html'), // htmlwebpackplugin的html模板的所在位置 模板里面可以使用js的语法
+            template: path.join(__dirname, 'src/index/index.html'), // htmlwebpackplugin的html模板的所在位置 模板里面可以使用js的语法
             filename: 'index.html', // 指定打包出来的html的文件名。
             chunks: ['index'], // 指定生成的html要使用哪些chunk， 和entry中的search
             inject: true, // 打包出来的chunk会自动的注入到这个html中。

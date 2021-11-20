@@ -8,6 +8,7 @@ import icon from './img/icon.jpeg';
 //  定义一个react组件
 class Search extends React.Component {
     render() {
+        debugger
         return <div className="search-text search-border">
             Search  Text --watch -- <img src={icon}></img>
         </div>;

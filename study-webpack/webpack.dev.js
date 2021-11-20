@@ -1,18 +1,48 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); // webpack 5.61
-// const CleanWebpackPlugin = require('clean-webpack-plugin'); // webpack 4
+const glob = require('glob');
+
+const setMPA = () => {
+    const entry = {};
+    const htmlWebpackPlugins = [];
+    const entryFiles = glob.sync(path.join(__dirname, './src/*/index.js'));
+    Object.keys(entryFiles).map((index) => {
+        const entryFile = entryFiles[index];
+        // D:/githubProject/study-essay/study-webpack/src/index/index.js
+        const match = entryFile.match(/src\/(.*)\/index\.js/);
+        const pageName = match && match[1];
+        entry[pageName] = entryFile;
+        const hwpc = new HtmlWebpackPlugin({
+            template: path.join(__dirname, `src/${pageName}/index.html`), // htmlwebpackplugin的html模板的所在位置 模板里面可以使用js的语法
+            filename: `${pageName}.html`, // 指定打包出来的html的文件名。
+            chunks: [pageName], // 指定生成的html要使用哪些chunk， 和entry中的search
+            inject: true, // 打包出来的chunk会自动的注入到这个html中。
+            minify: {
+                html5: true,
+                collapseWhitespace: true,
+                preserveLineBreaks: false,
+                minifyCss: true,
+                minifyJs: true,
+                removeComments: false,
+            }
+        });
+        htmlWebpackPlugins.push(hwpc);
+    });
+    return {
+        entry,
+        htmlWebpackPlugins
+    };
+}
+const {entry, htmlWebpackPlugins} = setMPA();
+
 module.exports = {
-    // mode: 'production',
     mode: 'development', // 使用热更新
-    entry: {
-        index: './src/index.js',
-        search: './src/search.js'
-    },
+    entry: entry,
     output:{
         path: path.join(__dirname, 'dist'),
         filename: '[name].js',
-        // filename: '[name][chunkhash:8].js', // 指纹
     },
     module: {
         rules: [
@@ -33,7 +63,24 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader',
-                    'less-loader'
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    'postcss-preset-env',
+                                ]
+                            },
+                        }
+                    },
+                    {
+                        loader: 'px2rem-loader',
+                        options: {
+                            remUnit: 75, 
+                            remPrecision: 8
+                        }
+                    },
+                    'less-loader',
                 ]
             },
             {
@@ -44,7 +91,6 @@ module.exports = {
                         loader: 'url-loader', // 单位为字节
                         options: {
                             limit: 20480, // 图片大小小于20k的时候，会自动base64
-                            // name: 'img/[name][hash:8].[ext]' // 指纹设置
                         }
                     }
                 ]
@@ -54,33 +100,32 @@ module.exports = {
                 use: [
                     'file-loader'
                 ]
+            },
+            {
+                test: /\.scss$/,
+                use: [
+
+                    {
+                        loader: 'style-loader',
+                        options: {
+                            insertAt: 'top', // 样式插入到<head></head>
+                            singleton: true, // 将所有的style标签合并成一个
+                        }
+                    },
+                    'css-loader',
+                    'sass-loader'
+                ]
             }
         ]
     },
     plugins: [
-        //  引入webpack自带的HotModuleReplacementPlugin插件
         new webpack.HotModuleReplacementPlugin(),
-        // new MiniCssExtractPlugin( // css文件指纹
-        //     {
-        //         filename: '[name][contenthash:8].css',
-        //     }
-        // ),
-        new CleanWebpackPlugin(), // 为了成功降了版本，webpack4
-    ],
-    // watch: true,
-    // watchOptions: {
-    //     // 默认为空，不监听的文件或者文件夹，支持正则匹配
-    //     ignored: /node_modules/,
-    //     // 监听到变化后等300ms再去执行，默认为300ms
-    //     aggregateTimeout: 300,
-    //     // 判断文件是否发生变化是通过不停的询问系统指定文件有没有发生变化实现的，默认每秒访问1000次
-    //     poll: 1000
-    // },
+        new CleanWebpackPlugin(),
+    ].concat(htmlWebpackPlugins),
     devServer: {
-        // webpack-dev-server服务的基础的目录
-        // contentBase: './dist', // webpack 4的属性 这个属性在webpack 5中不可以使用， static是webpack 5的
         static: './dist', // webpack 5.61
         // 热更新
         hot: true
-    }
+    },
+    devtool: 'cheap-source-map',
 };

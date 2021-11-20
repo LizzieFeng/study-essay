@@ -40,7 +40,7 @@ const setMPA = () => {
 const {entry, htmlWebpackPlugins} = setMPA();
 
 module.exports = {
-    mode: 'production',
+    mode: 'none',
     entry: entry,
     output:{
         path: path.join(__dirname, 'dist'),
@@ -166,4 +166,7 @@ module.exports = {
         // }),
         new CleanWebpackPlugin(),
     ].concat(htmlWebpackPlugins),
+    // devtool: 'eval'
+    // devtool: 'source-map'
+    devtool: 'inline-source-map'
 };

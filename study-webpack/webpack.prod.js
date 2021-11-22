@@ -4,7 +4,6 @@ const OptimizeCssAssetsPlugin  = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin'); // webpack 5.61
 const glob = require('glob');
-const HtmlWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const setMPA = () => {
     const entry = {};
     const htmlWebpackPlugins = [];
@@ -157,20 +156,6 @@ module.exports = {
             }
         ),
         new CleanWebpackPlugin(),
-        new HtmlWebpackExternalsPlugin({
-            externals: [
-                {
-                    module: 'react',
-                    entry: 'https://unpkg.com/react@16/umd/react.development.js',
-                    global: 'React'
-                },
-                {
-                    module: 'react-dom',
-                    entry: 'https://unpkg.com/react-dom@16/umd/react-dom.development.js',
-                    global: 'ReactDOM'
-                }
-            ]
-        }),
     ].concat(htmlWebpackPlugins),
     devtool: 'inline-source-map'
 };

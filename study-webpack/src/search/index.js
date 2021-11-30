@@ -5,6 +5,7 @@ import  ReactDOM  from "react-dom";
 import './search.css';
 import './search.less';
 import icon from './img/icon.jpeg';
+import '../../common/index';
 //  定义一个react组件
 class Search extends React.Component {
     render() {

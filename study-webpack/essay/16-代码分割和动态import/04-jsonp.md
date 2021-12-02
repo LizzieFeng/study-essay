@@ -1,0 +1,1 @@
+分割后的js是以webpackjsonp（即jsonp）的原理加载。

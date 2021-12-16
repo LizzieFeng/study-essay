@@ -1,0 +1,7 @@
+Tapable的使用 -- 实际例子演示
+
+定义一个Car方法，在内部hooks上新建钩子。分别是同步钩子accelerate、brake（accelerate接受一个参数）、异步钩子calculateRoutes
+
+使用钩子对应的绑定和执行方法
+
+calculateRoutes使用tapPromise可以返回一个promise对象。

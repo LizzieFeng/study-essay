@@ -1,0 +1,1 @@
+我们进入 mountComponent 函数中，可以看到 mountComponent 函数内部会对组件的类型进行一系列的判断，还有一些对 Vue 2 的兼容代码，核心的渲染逻辑就是 setupComponent 函数和 setupRenderEffect 函数。

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+        document.addEventListener("DOMContentLoaded",function () {
+            console.log("DOMContentLoaded" + new Date())
+        });
+    </script>
+    <!-- <link rel="stylesheet" href="css/common.css?sleep=3000"> -->
+    <script src="js/date.js"></script> 
+    <!-- // 脚本的执行，需要等到前面的css加载完成后 -->
+    <meta charset="UTF-8">
+    <title> DOMContentLoaded什么时候触发？</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: lightgreen;
+        }
+    </style>
+    <link rel="stylesheet" href="css/common.css?sleep=3000">
+</head>
+<body>
+<div></div>
+</body>
+</html>
+

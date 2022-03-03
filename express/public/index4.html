@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 浏览器遇到script标签时，会触发页面渲染</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="js/console.js?sleep=5000"></script>
+    <style>
+        div {
+            background: lightgrey;
+        }
+    </style>
+    <script src="js/console.js?sleep=10000"></script>
+    <link rel="stylesheet" href="css/common.css">
+</body>
+</html>

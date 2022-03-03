@@ -12,3 +12,5 @@ Speed Index是衡量页面性能的指标，Speed Index代表页面内容渲染�
 优化Speed Index从两方面入手：优化内容效率和优化关键渲染路径。
 
 如何获取Speed Index参数，可参考网站页面性能优化检测工具(https://z.xieyonghui.com/host/chrome-lighthouse-tool_40.html)。
+
+# 

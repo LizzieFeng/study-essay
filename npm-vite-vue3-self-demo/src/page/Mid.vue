@@ -1,35 +1,28 @@
 <script setup lang="ts">
+import MapNavView from '@/views/MapNavView.vue';
+import NavView from '@/views/NavView.vue';
+import LayerNavView from '@/views/LayerNavView.vue';
+const props = defineProps({
+        config: Object,
+    });
 </script>
 <template>
     <div class="main">
         <div>我是地名地址搜索</div>
         <div>
-            我是地图工具条
-        </div>
-        <div>我是左侧导航</div>
-        <div>
-            我是右侧导航
+            <MapNavView v-if="props.config && props.config.mapNav" :config="props.config && props.config.mapNav.config"></MapNavView>
         </div>
         <div>
-            我是图层图例
+            <NavView v-if="props.config && props.config.leftNav" :config="props.config && props.config.leftNav.config" type="left"></NavView>
+        </div>
+        <div>
+            <NavView v-if="props.config && props.config.rightNav" :config="props.config && props.config.rightNav.config" type="right"></NavView>
+        </div>
+        <div>
+            <LayerNavView v-if="props.config && props.config.layerNav" :config="props.config && props.config.layerNav.config"></LayerNavView>
         </div>
     </div>
 </template>
 
 <style scoped>
-.main{
-    position: relative;
-}
-
-.leftNav{
-    position: left;
-    width: 20px;
-    height: 100%;
-}
-
-.rightNav{
-    position: right;
-    width: 20px;
-    height: 100%;
-}
 </style>

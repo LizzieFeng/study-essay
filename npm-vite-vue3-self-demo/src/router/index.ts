@@ -4,7 +4,6 @@ import Mid from '@/page/Mid.vue';
 import JyqkView from "@/views/JyqkView.vue";
 import TqskView from "@/views/TqskView.vue";
 import YjxxView from "@/views/YjxxView.vue";
-import MapNavView from '@/views/MapNavView.vue';
 import MainVue from "@/page/Main.vue";
 const layoutRwConfig = {
   Left: Side,

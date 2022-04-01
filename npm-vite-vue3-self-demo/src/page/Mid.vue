@@ -2,7 +2,17 @@
 </script>
 <template>
     <div class="main">
-        我是中间
+        <div>我是地名地址搜索</div>
+        <div>
+            我是地图工具条
+        </div>
+        <div>我是左侧导航</div>
+        <div>
+            我是右侧导航
+        </div>
+        <div>
+            我是图层图例
+        </div>
     </div>
 </template>
 

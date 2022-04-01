@@ -1,79 +1,94 @@
 import { createRouter, createWebHistory, createWebHashHistory } from "vue-router";
-import Head from '@/page/edssLayout/Head.vue';
-import Left from '@/page/edssLayout/Left.vue';
-import Mid from '@/page/edssLayout/Mid.vue';
-import Right from '@/page/edssLayout/Right.vue';
+import Side from '@/page/Side.vue';
+import Mid from '@/page/Mid.vue';
 import JyqkView from "@/views/JyqkView.vue";
 import TqskView from "@/views/TqskView.vue";
 import YjxxView from "@/views/YjxxView.vue";
 import MapNavView from '@/views/MapNavView.vue';
-import ChildNavView from '@/views/ChildNavView.vue';
+import MainVue from "@/page/Main.vue";
+const layoutRwConfig = {
+  Left: Side,
+  Mid,
+  Right: Side,
+};
+const TqskViewConfig = {
+  style:{
+    width: '25%',
+    height: '200px'
+  },
+  componentName: TqskView,
+};
+const JyqkViewConfig = {
+  style:{
+    width: '45%',
+    height: '100px'
+  },
+  componentName: JyqkView,
+};
+
+const YjxxViewConfig = {
+  style:{
+    width: '100%',
+    height: '100px'
+  },
+  componentName: YjxxView,
+};
+
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      redirect:"/forest",
+      redirect:"/forest/index",
     },
     {
       path: "/forest",
-      components: {
-        Head,
-        Left,
-        Mid,
-        Right,
-      },
-      props: {
-        Left: {
-          config: [
-            JyqkView,
-            TqskView
-          ]
-        },
-        Mid: {
-          leftNavConfig:[],
-          rightNavConfig: [],
-        },
-        Right: {
-          config: [
-            JyqkView,
-            TqskView
-          ]
-        },
-      },
+      component: MainVue,
       children:[
         {
-          path: 'nav',
-          components: {
-            LeftNav:ChildNavView,
-            RightNav:ChildNavView,
-          },
+          path: 'index',
+          components: layoutRwConfig,
+          props: {
+            Left: {
+              config: [
+                TqskViewConfig,
+                YjxxViewConfig,
+              ]
+            },
+            Mid: {
+
+            },
+            Right: {
+              config: [
+                JyqkViewConfig,
+                TqskViewConfig,
+              ]
+            },
+          }
         }
       ]
     },
     {
       path: "/flood",
-      components: {
-        Head,
-        Left,
-        Mid,
-        Right,
-      },
-      props: {
-        Left: {
-          config: [
-            JyqkView,
-            TqskView,
-            YjxxView
-          ]
-        },
-        Right: {
-          config: [
-            JyqkView,
-            TqskView
-          ]
-        },
-      }
+      component: MainVue,
+      children:[
+        {
+          path: 'index',
+          components: layoutRwConfig,
+          props: {
+            Left: {
+              config: [
+                JyqkViewConfig,
+              ]
+            },
+            Right: {
+              config: [
+                JyqkViewConfig,
+              ]
+            },
+          }
+        }
+      ]
     },
   ],
 });

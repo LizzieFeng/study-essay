@@ -1,36 +1,21 @@
 <script setup lang="ts">
-import { RouterView } from "vue-router";
+import HeadVue from './page/Head.vue';
+import MainVue from './page/Main.vue';
 </script>
 
 <template>
-  <router-view class="header" name="Head"/>
-  <div class="main">
-    <router-view class="left" name="Left"/>
-    <router-view class="mid" name="Mid"/>
-    <router-view class="right" name="Right"/>
-  </div>
+    <HeadVue class="header"></HeadVue>
+    <router-view  class="main"/>
 </template>
 
 <style scoped>
-div{
-    outline: 1px solid red;
-}
 .header{
     height: 100px;
 }
+
 .main{
     display: flex;
     width: 100%;
     height: calc(100% - 100px);
-}
-
-.left,.right{
-    width: 25%;
-    height: 100%;
-}
-
-.mid{
-    width: 50%;
-    height: 100%;
 }
 </style>

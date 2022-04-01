@@ -1,5 +1,4 @@
 <script setup lang="ts">
-debugger
 </script>
 <template>
     <div>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+    import Pagination from '@/components/common/pagination/Pagination.vue';
     const props = defineProps({
         styleConfig: Object,
     });
@@ -6,6 +7,11 @@
 <template>
     <div :style="props.styleConfig">
         我是天气实况vue
+        <Pagination
+            :pageSize="5"
+            :total="20"
+            :currentPage="2"
+            ></Pagination>
     </div>
 </template>
 

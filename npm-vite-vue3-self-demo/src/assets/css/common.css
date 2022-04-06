@@ -1,0 +1,5 @@
+.gray {
+    -webkit-filter: grayscale(.95);
+    pointer-events: none;
+    cursor: default!important;
+}

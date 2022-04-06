@@ -19,3 +19,7 @@ import MainVue from './page/Main.vue';
     height: calc(100% - 100px);
 }
 </style>
+
+<style>
+@import "@/assets/css/common.css"
+</style>

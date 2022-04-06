@@ -1,6 +1,3 @@
-<script setup lang="ts">
-debugger
-</script>
 <template>
     <div>
         <router-view class="left" name="Left"/>

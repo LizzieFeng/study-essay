@@ -5,7 +5,7 @@
     });
 </script>
 <template>
-    <div :style="props.styleConfig">
+    <div :style="props.styleConfig" style="min-width: 146px;">
         我是天气实况vue
         <Pagination
             :pageSize="5"

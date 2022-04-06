@@ -1,5 +1,5 @@
 <template>
-    <span class="EdssPage-span-pager">
+    <span class="pagination-pager">
         {{props.currentPage}}
         /
         {{props.pageCount}}

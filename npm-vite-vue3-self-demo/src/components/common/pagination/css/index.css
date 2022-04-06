@@ -59,3 +59,7 @@
     background: url("../imgs/pageBack-hover.png") no-repeat center;
     background-size: 100% 100%;
 }
+
+.pagination-pager{
+    color: blue;
+}

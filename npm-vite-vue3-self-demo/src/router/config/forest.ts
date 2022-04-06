@@ -4,6 +4,7 @@ import Mid from '@/page/blue/Mid.vue';
 import JyqkView from "@/views/JyqkView.vue";
 import TqskView from "@/views/TqskView.vue";
 import YjxxView from "@/views/YjxxView.vue";
+import ReservoirOverviewView from "@/views/reservoir-overview/ReservoirOverviewView.vue";
 const layoutRwConfig = {
     Left: Side,
     Mid,
@@ -31,6 +32,14 @@ const layoutRwConfig = {
     },
     componentName: YjxxView,
   };
+
+  const ReservoirOverviewViewConfig = {
+    style:{
+      width: '50%',
+      height: '260px'
+    },
+    componentName: ReservoirOverviewView,
+  };
   
   const MidConfig = {
     leftNav: {
@@ -57,7 +66,7 @@ export const forestRouterConfig = {
           Left: {
             config: [
               TqskViewConfig,
-              YjxxViewConfig,
+              ReservoirOverviewViewConfig,
             ]
           },
           Mid: {

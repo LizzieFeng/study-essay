@@ -1,5 +1,3 @@
-<script setup lang="ts">
-</script>
 <template>
     <div>
         <RouterLink to="/forest/index">森火专题</RouterLink>

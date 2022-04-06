@@ -5,7 +5,7 @@
     });
 </script>
 <template>
-    <div :style="props.styleConfig" style="min-width: 146px;">
+    <div :style="props.styleConfig" style="min-width: 146px;" class="panel-50">
         我是天气实况vue
         <Pagination
             :pageSize="5"
@@ -16,7 +16,4 @@
 </template>
 
 <style scoped>
-    div{
-        background: red;
-    }
 </style>

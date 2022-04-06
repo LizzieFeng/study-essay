@@ -12,9 +12,6 @@
 </template>
 
 <style scoped>
-div{
-    outline: 1px solid blue;
-}
 .container{
     display: flex;
     flex-wrap: wrap;

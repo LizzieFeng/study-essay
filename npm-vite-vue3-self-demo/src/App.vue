@@ -1,25 +1,13 @@
 <script setup lang="ts">
-import HeadVue from './page/Head.vue';
-import MainVue from './page/Main.vue';
+import ThemeBlue from './page/blue/Index.vue';
 </script>
 
 <template>
-    <HeadVue class="header"></HeadVue>
-    <router-view  class="main"/>
+    <ThemeBlue></ThemeBlue>
 </template>
 
-<style scoped>
-.header{
-    height: 100px;
-}
-
-.main{
-    display: flex;
-    width: 100%;
-    height: calc(100% - 100px);
-}
-</style>
-
-<style>
-@import "@/assets/css/common.css"
+<style lang="less">
+@import "@/assets/css/common.css";
+@import "@/assets/theme/blue/blue.less";
+@import "@/assets/theme/blue/panel/panel.less";
 </style>

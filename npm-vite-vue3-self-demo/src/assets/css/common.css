@@ -3,3 +3,7 @@
     pointer-events: none;
     cursor: default!important;
 }
+
+a{
+    color: #ffffff;
+}

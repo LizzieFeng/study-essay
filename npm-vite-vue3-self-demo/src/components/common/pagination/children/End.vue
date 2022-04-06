@@ -21,6 +21,6 @@
         props.pageCount === 0
     )
 </script>
-<style scoped>
-@import "../css/index.css";
+<style scoped lang="less">
+@import "../css/index.less";
 </style>

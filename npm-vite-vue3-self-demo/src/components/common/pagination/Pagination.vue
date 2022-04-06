@@ -1,5 +1,5 @@
 <template>
-    <div class="Pagination">
+    <div class="pagination">
         <First 
             :currentPage="internalCurrentPage"
             @gotofirst-click="gotoFirst"></First>
@@ -108,6 +108,6 @@
         emit('current-change', internalCurrentPage.value);
     }
 </script>
-<style scoped>
-@import "./css/index.css";
+<style scoped lang="less">
+@import "./css/index.less";
 </style>

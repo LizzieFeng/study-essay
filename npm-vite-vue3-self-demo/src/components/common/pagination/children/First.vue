@@ -17,6 +17,6 @@
       () => props.currentPage <= 1
     )
 </script>
-<style scoped>
-@import "../css/index.css";
+<style scoped lang="less">
+@import "../css/index.less";
 </style>

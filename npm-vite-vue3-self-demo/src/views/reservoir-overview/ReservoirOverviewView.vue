@@ -8,35 +8,22 @@
 </template>
 
 <script setup lang="ts">
-    import { ref, provide } from 'vue';
+    import { ref, provide, reactive } from 'vue';
+    import { reservoirServer } from "@/api/edss/install";
     import ReservoirWarnStatistics from '@/components/feature/reservoirWarnStatistics/ReservoirWarnStatistics.vue';
     const props = defineProps({
         styleConfig: Object,
     });
-    const getList = () => {
-        return [
-            {
-                id: 1,
-                name: '水库1',
-                level: 63.11,
-                trend: '涨',
-            },
-            {
-                id: 2,
-                name: '水库3',
-                level: 63.12,
-                trend: '涨',
-            },
-        ]
+    const listData = ref([]);
+    const chatsData = ref([]); 
+    const getList = async () => {
+        const result: any = await reservoirServer.getWarnList();
+        listData.value = result;
     };
 
-    const getChart = () => {
-        return [
-            {
-                name: '涨',
-                value: 2
-            }
-        ]
+    const getChart = async () => {
+        const result: any = await reservoirServer.getWarnStatistics();
+        chatsData.value = result;
     }
 
     const statisticsConfig = {
@@ -59,13 +46,14 @@
             props: 'trend'
         }
     ];
-    const listData = ref([]);
-
     provide('statisticsConfig', statisticsConfig);
     provide('chartConfig', chartConfig);
     provide('listConfig', listConfig);
     provide('getList', getList);
     provide('getChart', getChart);
+    provide('listData', listData);
+    provide('chatsData', chatsData);
+
 </script>
 
 <style scoped>

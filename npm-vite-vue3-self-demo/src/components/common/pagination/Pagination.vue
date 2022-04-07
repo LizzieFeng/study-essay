@@ -57,7 +57,6 @@
     })
 
     watch(() => props.currentPage, (n, o) => {
-            debugger
             internalCurrentPage.value = getValidCurrentPage(n);
         },
         {
@@ -70,7 +69,6 @@
     })
 
     function  getValidCurrentPage(value: number) {
-        debugger
         let resetValue;
         if (value < 1) {
             resetValue = 1;
@@ -81,28 +79,24 @@
     }
     
     function prev() {
-        debugger
         const newVal = internalCurrentPage.value - 1;
         internalCurrentPage.value = getValidCurrentPage(newVal);
         emit('current-change', internalCurrentPage.value);
     }
 
     function next() {
-        debugger
         const newVal = internalCurrentPage.value + 1;
         internalCurrentPage.value = getValidCurrentPage(newVal);
         emit('current-change', internalCurrentPage.value);
     }
 
     function gotoFirst() {
-        debugger
         const newVal = 1;
         internalCurrentPage.value = getValidCurrentPage(newVal);
         emit('current-change', internalCurrentPage.value);
     }
 
     function gotoEnd() {
-        debugger
         const newVal = internalPageCount.value;
         internalCurrentPage.value = getValidCurrentPage(newVal);
         emit('current-change', internalCurrentPage.value);

@@ -5,40 +5,47 @@
     </div>
 </template>
 <script lang="ts" setup>
-import {defineProps, onMounted} from 'vue';
+import {defineProps, onMounted, watchEffect, nextTick, watch} from 'vue';
 import * as echarts from 'echarts';
 const props = defineProps({
-    data: Array,
+    data: Object,
 });
 const id = (+ new Date()).toString();
-
-let option: any;
-
-option = {
-  legend: {
-    orient: 'vertical',
-    left: 'left'
-  },
-  series: [
-    {
-      name: 'Access From',
-      type: 'pie',
-      radius: '50%',
-      data: props.data,
-      emphasis: {
-        itemStyle: {
-          shadowBlur: 10,
-          shadowOffsetX: 0,
-          shadowColor: 'rgba(0, 0, 0, 0.5)'
+const option: any = {
+      legend: {
+        orient: 'vertical',
+        left: 'left'
+      },
+      series: [
+        {
+          name: 'Access From',
+          type: 'pie',
+          radius: '50%',
+          data: [{name:'1',value:2}],
+          emphasis: {
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0, 0, 0, 0.5)'
+            }
+          }
         }
-      }
-    }
-  ]
-};
+      ]
+    };
+
+watch(() => props.data, (n, o) => {
+           renderEcharts();
+        }
+    )
+
+function renderEcharts () {
+    const chartDom: any = document.getElementById(id);
+    const myChart = echarts.init(chartDom);
+    option.series[0].data = props.data;
+    myChart.setOption(option);
+}
 
 onMounted(() => {
-    const chartDom: any = document.getElementById(id);
-const myChart = echarts.init(chartDom);
-      option && myChart.setOption(option);
+    
     })
 </script>

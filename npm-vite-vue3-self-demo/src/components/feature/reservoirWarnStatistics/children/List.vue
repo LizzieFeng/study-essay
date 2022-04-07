@@ -6,7 +6,7 @@
         </span>
     </div>
     <div>
-        <div v-for="(e,i) of list">
+        <div v-for="(e,i) of listData">
             {{i+1}} 
             <div v-for="(c,ci) of listConfig">
                 {{c.label}}--{{e[c.props]}}
@@ -18,9 +18,7 @@
 <script lang="ts" setup>
 import { ref, inject } from 'vue';
 const listConfig = inject<any>('listConfig')
-const getList = inject<any>('getList');
-const list = ref([]);
-list.value = getList();
+const listData = inject<any>('listData');
 const emit = defineEmits(['gotostatistics-click']);
 </script>
 

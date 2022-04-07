@@ -33,7 +33,7 @@
     const getChart = () => {
         return [
             {
-                trendCode: '涨',
+                name: '涨',
                 value: 2
             }
         ]

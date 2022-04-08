@@ -15,7 +15,7 @@
 .BlueSidePage{
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
+    align-content: space-between;
     justify-content: space-between;
 }
 </style>

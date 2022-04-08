@@ -5,8 +5,8 @@
 </script>
 <template>
 <div class="container">
-    <template v-for="(item) of props.config" :key="item">
-        <component :is="item.componentName" :styleConfig="item.style"/>
+    <template v-for="(item) of props.config" >
+        <component :is="item.componentName" :styleConfig="item.style" class="item"/>
     </template>
 </div>
 </template>
@@ -16,5 +16,6 @@
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    justify-content: space-between;
 }
 </style>

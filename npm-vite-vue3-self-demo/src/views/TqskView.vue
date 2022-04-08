@@ -1,19 +1,19 @@
 <script setup lang="ts">
     import Pagination from '@/components/common/pagination/Pagination.vue';
-    const props = defineProps({
-        styleConfig: Object,
-    });
+    import PanelEdssLeft from '@/components/common/panel/PanelEdssLeft.vue';
 </script>
 <template>
-    <div :style="props.styleConfig" style="min-width: 146px;" class="panel-50">
-        我是天气实况vue
-        <Pagination
-            :pageSize="5"
-            :total="20"
-            :currentPage="2"
+    <PanelEdssLeft  >
+        
+        <template v-slot:title>
+            天气实况
+        </template>
+        <template v-slot:content>
+            <Pagination
+                :pageSize="5"
+                :total="20"
+                :currentPage="2"
             ></Pagination>
-    </div>
+        </template>
+    </PanelEdssLeft>
 </template>
-
-<style scoped>
-</style>

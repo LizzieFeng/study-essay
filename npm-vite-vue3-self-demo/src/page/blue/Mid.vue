@@ -25,4 +25,7 @@ const props = defineProps({
 </template>
 
 <style scoped>
+.main{
+    outline: 1px solid red;
+}
 </style>

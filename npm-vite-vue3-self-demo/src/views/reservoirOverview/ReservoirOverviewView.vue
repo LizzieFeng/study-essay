@@ -1,15 +1,18 @@
 <template>
-    <div :style="props.styleConfig" class="panel-50 rov-contaienr">
-        <div>我是水库水情vue</div>
-        <div>
+    <PanelEdssLeft  class="rov-contaienr">
+        <template v-slot:title>
+            水库水情
+        </template>
+        <template v-slot:content>
             <ReservoirWarnStatistics></ReservoirWarnStatistics>
-        </div>
-    </div>
+        </template>
+    </PanelEdssLeft>
 </template>
 
 <script setup lang="ts">
     import { ref, provide, reactive } from 'vue';
     import { reservoirServer } from "@/api/edss/install";
+    import PanelEdssLeft from '@/components/common/panel/PanelEdssLeft.vue';
     import ReservoirWarnStatistics from '@/components/feature/reservoirWarnStatistics/ReservoirWarnStatistics.vue';
     const props = defineProps({
         styleConfig: Object,

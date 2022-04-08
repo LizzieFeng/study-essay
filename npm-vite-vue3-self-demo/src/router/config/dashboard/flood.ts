@@ -1,4 +1,4 @@
-import {layoutRwConfig, BlueMainPage} from "../layout/BlueTheme";
+import {layoutRwConfig, BlueMainPage} from "../../layout/BlueTheme";
 import {
     TqybViewConfig,
     TqskViewConfig,
@@ -6,7 +6,7 @@ import {
     JyqkViewConfig,
     ReservoirOverviewViewConfig,
     RiverOverviewViewConfig,
-} from '../viewsComponent/ViewComponentRegistry';
+} from '../../viewsComponent/ViewComponentRegistry';
   
   const MidConfig = {
     leftNav: {
@@ -23,12 +23,8 @@ import {
     }
   };
 export const floodRouterConfig = {
-    path: "/flood",
-    component: BlueMainPage,
-    children:[
-      {
-        path: 'index',
-        components: layoutRwConfig,
+    path: "flood",
+    components: layoutRwConfig,
         props: {
           Left: {
             config: [
@@ -54,6 +50,4 @@ export const floodRouterConfig = {
             ]
           },
         }
-      }
-    ]
   }

@@ -1,8 +1,7 @@
 <template>
-    <BlueThemePage></BlueThemePage>
+    <router-view></router-view>
 </template>
 <script setup lang="ts">
-import BlueThemePage from './page/blue/BlueThemePage.vue';
 </script>
 
 <style lang="less">

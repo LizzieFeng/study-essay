@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import BlueHeadPage from './BlueHeadPage.vue';
+import {BlueMainPage} from "@/router/layout/BlueTheme";
 </script>
 
 <template>
     <div class="BlueTheme ThemeFont">
         <BlueHeadPage class="LayoutHeader"></BlueHeadPage>
         <div class="LayoutMain">
-            <router-view  />
+            <BlueMainPage > </BlueMainPage>
         </div>
     </div>
 </template>

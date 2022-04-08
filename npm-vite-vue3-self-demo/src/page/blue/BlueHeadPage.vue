@@ -1,10 +1,10 @@
 <template>
     <div class="BlueHeader">
         <div>
-            <RouterLink to="/forest/index">森火专题</RouterLink>
+            <RouterLink to="/dashboard/forest">森火专题</RouterLink>
         </div>
         <div>
-             <RouterLink to="/flood/index">防汛专题</RouterLink>
+             <RouterLink to="/dashboard/flood">防汛专题</RouterLink>
         </div>
     </div>
 </template>

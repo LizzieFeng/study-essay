@@ -1,4 +1,4 @@
-import {layoutRwConfig, BlueMainPage} from "../layout/BlueTheme";
+import {layoutRwConfig, BlueMainPage} from "../../layout/BlueTheme";
 import {
     TqybViewConfig,
     TqskViewConfig,
@@ -6,7 +6,7 @@ import {
     JyqkViewConfig,
     ReservoirOverviewViewConfig,
     RiverOverviewViewConfig,
-} from '../viewsComponent/ViewComponentRegistry';
+} from '../../viewsComponent/ViewComponentRegistry';
   
   const MidConfig = {
     leftNav: {
@@ -23,13 +23,9 @@ import {
     }
   };
 export const forestRouterConfig = {
-    path: "/forest",
-    component: BlueMainPage,
-    children:[
-      {
-        path: 'index',
-        components: layoutRwConfig,
-        props: {
+    path: "forest",
+    components: layoutRwConfig,
+    props: {
           Left: {
             config: [
               TqskViewConfig,
@@ -50,7 +46,5 @@ export const forestRouterConfig = {
               YjxxViewConfig,
             ]
           },
-        }
-      }
-    ]
+    }
   }

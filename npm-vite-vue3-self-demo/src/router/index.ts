@@ -1,22 +1,16 @@
 import { createRouter, createWebHistory, createWebHashHistory } from "vue-router";
-import { forestRouterConfig } from "./config/forest";
-import {floodRouterConfig} from "./config/flood";
+import {DashboardRouter} from "./config/dashboard/Dashboard";
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: "/",
-      redirect:"/forest/index",
+      redirect:"/dashboard/forest",
     },
     {
-      path: forestRouterConfig.path,
-      component: forestRouterConfig.component,
-      children: forestRouterConfig.children,
-    },
-    {
-      path: floodRouterConfig.path,
-      component: floodRouterConfig.component,
-      children: floodRouterConfig.children,
+      path: DashboardRouter.path,
+      component: DashboardRouter.component,
+      children: DashboardRouter.children,
     },
   ],
 });

@@ -1,6 +1,6 @@
 <template>
-    <div class="header">
-        <div class="item">
+    <div class="BlueHeader">
+        <div>
             <RouterLink to="/forest/index">森火专题</RouterLink>
         </div>
         <div>
@@ -9,7 +9,7 @@
     </div>
 </template>
 <style scoped >
-.header{
+.BlueHeader{
     border-bottom: 1px solid red;
 }
 </style>

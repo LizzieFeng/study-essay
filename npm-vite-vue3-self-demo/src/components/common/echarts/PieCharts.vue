@@ -1,5 +1,5 @@
 <template>
-    <div :id="id">
+    <div :id="id" class="PieCharts">
 
         饼图
     </div>
@@ -30,3 +30,9 @@ onMounted(() => {
     
     })
 </script>
+
+<style scoped>
+.PieCharts{
+    height: 100%;
+}
+</style>

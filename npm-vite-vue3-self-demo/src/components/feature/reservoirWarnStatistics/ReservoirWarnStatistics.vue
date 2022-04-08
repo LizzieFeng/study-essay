@@ -18,3 +18,7 @@ const gotoStatistics = () => {
     curShow.value = "statistics";
 }
 </script>
+
+<style scoped lang="less">
+    
+</style>

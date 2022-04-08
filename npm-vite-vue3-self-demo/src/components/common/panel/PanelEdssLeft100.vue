@@ -1,5 +1,5 @@
 <template>
-    <div class="PanelEdssLeft panel-50">
+    <div class="PanelEdssLeft100 panel-100">
         <div class="title">
             <slot name="title"></slot>
         </div>
@@ -12,7 +12,7 @@
 <style scoped lang="less">
 @import "@/assets/theme/blue/panel/panel.less";
 
-.PanelEdssLeft{
+.PanelEdssLeft100{
     .title{
         height: 36px;
         line-height: 36px;

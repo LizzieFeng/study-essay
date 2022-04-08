@@ -1,12 +1,14 @@
 <template>
-<div>
-    <div>
-        <span @click.stop="$emit('gotolist-click')">
-             {{statisticsConfig.label}} {{ total || 0}} {{statisticsConfig.unit}}
+<div class="ReservoirWarnStatistics-Statistics">
+    <div class="title-container" @click.stop="$emit('gotolist-click')">
+        {{statisticsConfig.label}}
+        <span class="num-infor">
+                {{ total || 0}} 
         </span>
+        {{statisticsConfig.unit}}
     </div>
-    <div>
-        <PieCharts :opts="chartsOpts" class="charts-container"></PieCharts>
+    <div class="echarts-container">
+        <PieCharts :opts="chartsOpts"></PieCharts>
     </div>
 </div>
 </template>
@@ -14,8 +16,6 @@
 import { ref, inject, watchEffect, watch } from 'vue';
 import * as echarts from 'echarts';
 import PieCharts from '@/components/common/echarts/PieCharts.vue';
-// import IStatisticsConfig from '../interface/StatisticsConfig';
-// const statisticsConfig = inject<IStatisticsConfig>('statisticsConfig')
 const statisticsConfig = inject<any>('statisticsConfig')
 const getList = inject<any>('getList');
 const chatsData = inject<any>('chatsData');
@@ -30,7 +30,6 @@ watch(listData, (n, o) => {
         }
     )
 watch(chatsData, (n, o) => {
-    debugger
             const legendData = ['涨', '平', '落', '未知'];
             const legendConfig = {
                     show: true,
@@ -200,9 +199,30 @@ watch(chatsData, (n, o) => {
 const emit = defineEmits(['gotolist-click']);
 </script>
 
-<style scoped>
-.charts-container{
-    width: 100%;
-    height: 200px;
+<style scoped lang="less">
+.ReservoirWarnStatistics-Statistics{
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .title-container{
+        width: fit-content;
+        height: 40px;
+        background: url("../imgs/title.png") no-repeat center;
+        background-size: 100% 100%;
+        padding: 8px 16px;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        .num-infor{
+            color: #d5ca22;
+        }
+    }
+    .echarts-container{
+        height: calc(100% - 40px);
+        width: 100%;
+    }
 }
+
 </style>

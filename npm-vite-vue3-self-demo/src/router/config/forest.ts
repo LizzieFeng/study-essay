@@ -1,54 +1,12 @@
-import MainVue from "@/page/blue/Main.vue";
-import Side from '@/page/blue/Side.vue';
-import Mid from '@/page/blue/Mid.vue';
-import JyqkView from "@/views/JyqkView.vue";
-import TqskView from "@/views/TqskView.vue";
-import YjxxView from "@/views/YjxxView.vue";
-import ReservoirOverviewView from "@/views/reservoirOverview/ReservoirOverviewView.vue";
-import RiverOverviewView from "@/views/riverOverview/RiverOverviewView.vue";
-const layoutRwConfig = {
-    Left: Side,
-    Mid,
-    Right: Side,
-  };
-  const TqskViewConfig = {
-    style:{
-      width: '25%',
-      height: '200px'
-    },
-    componentName: TqskView,
-  };
-  const JyqkViewConfig = {
-    style:{
-      width: '45%',
-      height: '100px'
-    },
-    componentName: JyqkView,
-  };
-  
-  const YjxxViewConfig = {
-    style:{
-      width: '100%',
-      height: '100px'
-    },
-    componentName: YjxxView,
-  };
-
-  const ReservoirOverviewViewConfig = {
-    style:{
-      width: '50%',
-      height: '260px'
-    },
-    componentName: ReservoirOverviewView,
-  };
-
-  const RiverOverviewViewConfig = {
-    style:{
-      width: '50%',
-      height: '260px'
-    },
-    componentName: RiverOverviewView,
-  };
+import {layoutRwConfig, BlueMainPage} from "../layout/BlueTheme";
+import {
+    TqybViewConfig,
+    TqskViewConfig,
+    YjxxViewConfig,
+    JyqkViewConfig,
+    ReservoirOverviewViewConfig,
+    RiverOverviewViewConfig,
+} from '../viewsComponent/ViewComponentRegistry';
   
   const MidConfig = {
     leftNav: {
@@ -66,7 +24,7 @@ const layoutRwConfig = {
   };
 export const forestRouterConfig = {
     path: "/forest",
-    component: MainVue,
+    component: BlueMainPage,
     children:[
       {
         path: 'index',
@@ -77,6 +35,8 @@ export const forestRouterConfig = {
               TqskViewConfig,
               ReservoirOverviewViewConfig,
               RiverOverviewViewConfig,
+              TqybViewConfig,
+              YjxxViewConfig,
             ]
           },
           Mid: {
@@ -84,8 +44,10 @@ export const forestRouterConfig = {
           },
           Right: {
             config: [
-              JyqkViewConfig,
               TqskViewConfig,
+              ReservoirOverviewViewConfig,
+              JyqkViewConfig,
+              YjxxViewConfig,
             ]
           },
         }

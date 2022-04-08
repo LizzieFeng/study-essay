@@ -4,15 +4,15 @@
     });
 </script>
 <template>
-<div class="container">
+<div class="BlueSidePage">
     <template v-for="(item) of props.config" >
-        <component :is="item.componentName" :styleConfig="item.style" class="item"/>
+        <component :is="item.componentName"/>
     </template>
 </div>
 </template>
 
 <style scoped>
-.container{
+.BlueSidePage{
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;

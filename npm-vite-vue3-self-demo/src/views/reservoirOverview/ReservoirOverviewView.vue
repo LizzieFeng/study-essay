@@ -1,5 +1,5 @@
 <template>
-    <PanelEdssLeft  class="rov-contaienr">
+    <PanelEdssLeft  class="ReservoirOverviewView">
         <template v-slot:title>
             水库水情
         </template>
@@ -14,20 +14,8 @@
     import { reservoirServer } from "@/api/edss/install";
     import PanelEdssLeft from '@/components/common/panel/PanelEdssLeft.vue';
     import ReservoirWarnStatistics from '@/components/feature/reservoirWarnStatistics/ReservoirWarnStatistics.vue';
-    const props = defineProps({
-        styleConfig: Object,
-    });
     const listData = ref([]);
     const chatsData = ref({}); 
-    const getList = async () => {
-        const result: any = await reservoirServer.getWarnList();
-        listData.value = result;
-    };
-
-    const getChart = async () => {
-        const result: any = await reservoirServer.getWarnStatistics();
-        chatsData.value = result;
-    }
 
     const statisticsConfig = {
         label: '告警水库',
@@ -49,6 +37,16 @@
             props: 'trend'
         }
     ];
+
+    const getList = async () => {
+        const result: any = await reservoirServer.getWarnList();
+        listData.value = result;
+    };
+
+    const getChart = async () => {
+        const result: any = await reservoirServer.getWarnStatistics();
+        chatsData.value = result;
+    }
     provide('statisticsConfig', statisticsConfig);
     provide('chartConfig', chartConfig);
     provide('listConfig', listConfig);
@@ -61,7 +59,4 @@
 
 <style scoped>
 
-.rov-contaienr{
-    min-width: 400px;
-}
 </style>

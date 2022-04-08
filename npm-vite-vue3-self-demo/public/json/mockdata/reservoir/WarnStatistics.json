@@ -1,8 +1,8 @@
 {
-    "data": [
-        {
-            "name": "涨",
-            "value": 2
-        }
-    ]
+    "data": {
+        "increase": 2,
+        "stable": 3,
+        "decrease": 8,
+        "unknown": 4
+    }
 }

@@ -1,6 +1,6 @@
 <template>
     <div :style="props.styleConfig" class="panel-50 rov-contaienr">
-        <div>我是水库水情vue</div>
+        <div>我是河道水情vue</div>
         <div>
             <ReservoirWarnStatistics></ReservoirWarnStatistics>
         </div>
@@ -9,26 +9,26 @@
 
 <script setup lang="ts">
     import { ref, provide, reactive } from 'vue';
-    import { reservoirServer } from "@/api/edss/install";
+    import { riverServer } from "@/api/edss/install";
     import ReservoirWarnStatistics from '@/components/feature/reservoirWarnStatistics/ReservoirWarnStatistics.vue';
     const props = defineProps({
         styleConfig: Object,
     });
     const listData = ref([]);
-    const chatsData = ref([]); 
+    const chatsData = ref({}); 
     const getList = async () => {
-        const result: any = await reservoirServer.getWarnList();
+        const result: any = await riverServer.getWarnList();
         listData.value = result;
     };
 
     const getChart = async () => {
-        const result: any = await reservoirServer.getWarnStatistics();
+        const result: any = await riverServer.getWarnStatistics();
         chatsData.value = result;
     }
 
     const statisticsConfig = {
-        label: '告警水库',
-        unit: '座',
+        label: '超警戒河流监测站',
+        unit: '个',
     };
 
     const chartConfig = {};

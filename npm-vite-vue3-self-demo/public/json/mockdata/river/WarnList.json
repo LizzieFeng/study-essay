@@ -2,37 +2,37 @@
     "data": [
         {
             "id": 1,
-            "name": "水库a",
+            "name": "河流a",
             "level": 11,
             "trend": "涨"
         },
         {
             "id": 2,
-            "name": "水库b",
+            "name": "河流b",
             "level": 63.12,
             "trend": "涨"
         },
         {
             "id": 3,
-            "name": "水库a",
+            "name": "河流a",
             "level": 11,
             "trend": "平"
         },
         {
             "id": 4,
-            "name": "水库b",
+            "name": "河流b",
             "level": 63.12,
             "trend": "平"
         },
         {
             "id": 5,
-            "name": "水库a",
+            "name": "河流a",
             "level": 11,
             "trend": "落"
         },
         {
             "id": 6,
-            "name": "水库b",
+            "name": "河流b",
             "level": 63.12,
             "trend": "落"
         }

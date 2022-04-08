@@ -1,7 +1,7 @@
 import {RequestServerClass} from '@/api/Request';
 import {jsonFileServer} from '@/api/common/install';
 
-export class ReservoirServer {
+export class RiverServer {
 
     public rSerivce: any;
 
@@ -13,7 +13,7 @@ export class ReservoirServer {
     }
 
     public getWarnStatistics() {
-        const url = '/json/mockdata/reservoir/WarnStatistics.json';
+        const url = '/json/mockdata/river/WarnStatistics.json';
         let result: any = [];
         return new Promise((resolve, reject) => {
             jsonFileServer.getStaticJsonByUrl(url)
@@ -28,7 +28,7 @@ export class ReservoirServer {
     }
 
     public getWarnList() {
-        const url = '/json/mockdata/reservoir/WarnList.json';
+        const url = '/json/mockdata/river/WarnList.json';
         let result: any = [];
         return new Promise((resolve, reject) => {
             jsonFileServer.getStaticJsonByUrl(url)

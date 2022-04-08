@@ -1,0 +1,8 @@
+{
+    "data": {
+        "increase": 8,
+        "stable": 3,
+        "decrease": 2,
+        "unknown": 5
+    }
+}

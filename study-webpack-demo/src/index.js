@@ -1,5 +1,6 @@
 import _ from "lodash";
 import './style.css';
+import './loader/index.css'
 
 function component() {
     const element = document.createElement('div');
@@ -7,6 +8,7 @@ function component() {
     element.innerHTML = _.join(['hello', 'webpack'], ' ');
     // element.innerHTML = "Hellow Webpack"
     element.classList.add('hello');
+    element.classList.add('img1');
 
     return element;
 }

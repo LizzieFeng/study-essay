@@ -13,22 +13,7 @@ module.exports = {
         use: [
           'style-loader', 
           'css-loader',
-          {
-            loader:'fry-loader',
-            options:{
-              modules: {
-                mode: "local",
-                auto: true,
-                exportGlobals: true,
-                localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                localIdentContext: path.resolve(__dirname, "src"),
-                localIdentHashSalt: "my-custom-hash",
-                namedExport: true,
-                exportLocalsConvention: "camelCase",
-                exportOnlyLocals: false,
-              },
-            }
-          }
+          'fry-sprite-loader',
         ],
       },
     ],

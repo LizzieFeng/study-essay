@@ -2,6 +2,7 @@ import _ from "lodash";
 import './style.css';
 import './loader/index.css'
 
+
 function component() {
     const element = document.createElement('div');
 

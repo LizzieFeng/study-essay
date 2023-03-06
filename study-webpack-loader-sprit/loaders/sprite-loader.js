@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = function (source) {
-    // console.log('source', source);
+    console.log('source', source, arguments);
     const callback = this.async();
     const imgs = source.match(/url\((\S*)\?__sprite/g);
     // console.log('imgs',imgs);
